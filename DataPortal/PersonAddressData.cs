@@ -10,13 +10,6 @@ namespace DataPortal
     public class PersonAddressData
     {
 
-      
-
-        //C:\Users\Tom\Desktop\Person Manager\PersonManager\PersonManager_2013-03-12\PersonManager\DataManager\InventoryDatabase.mdf
-        //  String _connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\BegASPNET\\PersonManager\\PersonManager\\PersonManager\\DataManager\\App_Data\\InventoryDatabase.mdf;Integrated Security=True;User Instance=True";
-
-        String _connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\Tom\\Desktop\\Person Manager\\PersonManager\\PersonManager_2013-03-12\\PersonManager\\DataManager\\InventoryDatabase.mdf;Integrated Security=True;User Instance=True";
-
         public DataSet Fetch(int PersonID)
         {
             DataSet ds = new DataSet();
@@ -24,7 +17,7 @@ namespace DataPortal
             String sql = "SELECT PersonID, Address.AddressID, AddressTypeID, PersonAddresses.Description, Notes, Street1, Street2, City, State, Zip FROM PersonAddresses JOIN Address ON Address.AddressID = PersonAddresses.AddressID WHERE PersonID = @PersonID AND (IsDeleted = 0 OR IsDeleted IS NULL)";
             SqlConnection cn;
 
-            cn = new SqlConnection(_connectionString);
+            cn = new SqlConnection(Config.ConnectionString);
 
             cn.Open();
 
@@ -51,7 +44,7 @@ namespace DataPortal
             // AND (PersonAddresses.IsDeleted = 0 OR PersonAddresses.IsDeleted IS NULL)
             String sql = "SELECT PersonID, PersonAddresses.AddressID, AddressTypeID, PersonAddresses.Description, PersonAddresses.IsDeleted, Notes, Street1, Street2, City, State, Zip FROM PersonAddresses JOIN Address ON Address.AddressID = PersonAddresses.AddressID WHERE PersonID = @PersonID AND Address.AddressID = @AddressID";
             SqlConnection cn;
-            cn = new SqlConnection(_connectionString);
+            cn = new SqlConnection(Config.ConnectionString);
 
             cn.Open();
 
@@ -81,7 +74,7 @@ namespace DataPortal
             String sqlStatementString = "SELECT * FROM AddressTypes";
             SqlConnection dbConnection;
 
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(Config.ConnectionString);
 
             dbConnection.Open();
             //We want to      ask the database to give us a command object we can use. 
@@ -108,7 +101,7 @@ namespace DataPortal
             String sqlStatementString = "INSERT INTO PersonAddresses (PersonID, AddressID, AddressTypeID, Description, Notes) VALUES (@PersonID, @AddressID, @AddressTypeID, @Description, @Notes)";
             SqlConnection dbConnection;
 
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(Config.ConnectionString);
 
             dbConnection.Open();
 
@@ -135,7 +128,7 @@ namespace DataPortal
             SqlConnection dbConnection;
 
             object AddressID;
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(Config.ConnectionString);
 
             dbConnection.Open();
 
@@ -162,7 +155,7 @@ namespace DataPortal
             DataSet ds = new DataSet();
             String sql = "UPDATE PersonAddresses SET AddressTypeID = @AddressTypeID, Description = @Description, Notes = @Notes WHERE PersonID = @PersonID AND AddressID = @AddressID";
             SqlConnection cn;
-            cn = new SqlConnection(_connectionString);
+            cn = new SqlConnection(Config.ConnectionString);
 
             cn.Open();
 
@@ -192,7 +185,7 @@ namespace DataPortal
             DataSet ds = new DataSet();
             String sqlStatementString = "UPDATE Address SET Street1 = @Street1, Street2 = @Street2, City = @City, State = @State, Zip = @Zip WHERE AddressID = @AddressID SELECT @@IDENTITY AS AddressID";
             SqlConnection dbConnection;
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(Config.ConnectionString);
             dbConnection.Open();
 
             SqlCommand dbCommand = dbConnection.CreateCommand();
@@ -222,7 +215,7 @@ namespace DataPortal
                 DataSet ds = new DataSet();
                 String sqlStatementString = "UPDATE PersonAddresses SET IsDeleted = 1 WHERE AddressID = @AddressID";
                 SqlConnection dbConnection;
-                dbConnection = new SqlConnection(_connectionString);
+                dbConnection = new SqlConnection(Config.ConnectionString);
                 dbConnection.Open();
 
                 SqlCommand dbCommand = dbConnection.CreateCommand();

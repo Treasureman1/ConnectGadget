@@ -9,8 +9,6 @@ namespace DataPortal
 {
     public class UsersData
     {
-        string _connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\Tom\\Desktop\\Person Manager\\PersonManager\\PersonManager_2013-03-12\\PersonManager\\DataManager\\InventoryDatabase.mdf;Integrated Security=True;User Instance=True";
-
         public DataSet Fetch(int PersonID)
         {
             DataSet ds = new DataSet();
@@ -21,7 +19,7 @@ namespace DataPortal
             String sql = "SELECT * FROM [User] WHERE PersonID = @PersonID AND (IsDeleted = 0 OR IsDeleted IS NULL)";
             SqlConnection cn;
 
-            cn = new SqlConnection(_connectionString);
+            cn = new SqlConnection(Config.ConnectionString);
 
             cn.Open();
 

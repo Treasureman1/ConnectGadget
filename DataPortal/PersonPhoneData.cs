@@ -9,10 +9,6 @@ namespace DataPortal
 {
     public class PersonPhoneData
     {
-        //C:\Users\Tom\Desktop\Person Manager\PersonManager\PersonManager_2013-03-12\PersonManager\DataManager\InventoryDatabase.mdf
-        String _connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\Tom\\Desktop\\Person Manager\\PersonManager\\PersonManager_2013-03-12\\PersonManager\\DataManager\\InventoryDatabase.mdf;Integrated Security=True;User Instance=True";
-      //  C:\\BegASPNET\\PersonManager\\PersonManager\\PersonManager\\DataManager\\App_Data\\InventoryDatabase.mdf
-        //C:\\Users\\Tom\\Desktop\\Person Manager\\PersonManager\\PersonManager_2013-03-12\\PersonManager\\DataManager\\InventoryDatabase.mdf
         public DataSet Fetch(int PersonID, int PhoneID)
         {
             DataSet ds = new DataSet();       
@@ -20,7 +16,7 @@ namespace DataPortal
             String sql = "SELECT PersonID, Phone.PhoneID, PersonPhones.Description, PersonPhones.Notes, PersonPhones.DoNotCall, PersonPhones.DoNotText, Phone.AreaCode, Phone.PhoneNumber, Phone.Extension, Phone.PhoneTypeID FROM PersonPhones JOIN Phone ON Phone.PhoneID = PersonPhones.PhoneID WHERE PersonID = @PersonID AND Phone.PhoneID = @PhoneID AND (IsDeleted = 0 OR IsDeleted IS NULL)";
             SqlConnection cn;
 
-            cn = new SqlConnection(_connectionString);
+            cn = new SqlConnection(Config.ConnectionString);
 
             cn.Open();
 
@@ -50,7 +46,7 @@ namespace DataPortal
             String sqlStatementString = "SELECT * FROM PhoneTypes";
             SqlConnection dbConnection;
 
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(Config.ConnectionString);
 
             dbConnection.Open();
             //We want to      ask the database to give us a command object we can use. 
@@ -77,7 +73,7 @@ namespace DataPortal
             String sqlStatementString = "INSERT INTO PersonPhones (PersonID, PhoneID, Description, Notes, DoNotCall, DoNotText) VALUES (@PersonID, @PhoneID, @Description, @Notes, @DoNotCall, @DoNotText)";
             SqlConnection dbConnection;
 
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(Config.ConnectionString);
 
             dbConnection.Open();
 
@@ -107,7 +103,7 @@ namespace DataPortal
             SqlConnection dbConnection;
 
            object PhoneID;
-            dbConnection = new SqlConnection(_connectionString);
+           dbConnection = new SqlConnection(Config.ConnectionString);
 
             dbConnection.Open();
 
@@ -140,7 +136,7 @@ namespace DataPortal
             String sqlStatementString = "UPDATE [Phone] SET AreaCode = @AreaCode, PhoneNumber = @PhoneNumber, Extension = @Extension, PhoneTypeID = @PhoneTypeID WHERE PhoneID = @PhoneID";
             
             SqlConnection cn;
-            cn = new SqlConnection(_connectionString);
+            cn = new SqlConnection(Config.ConnectionString);
 
             cn.Open();
             
@@ -175,7 +171,7 @@ namespace DataPortal
             String sqlStatementString = "UPDATE PersonPhones SET Description = @Description, Notes = @Notes, DoNotCall = @DoNotCall, DoNotText = @DoNotText WHERE PersonID = @PersonID AND PhoneID = @PhoneID";
             SqlConnection dbConnection;
 
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(Config.ConnectionString);
 
             dbConnection.Open();
 
@@ -201,7 +197,7 @@ namespace DataPortal
             DataSet ds = new DataSet();
             String sql = "UPDATE PersonPhones SET Description = @Description, Notes = @Notes, DoNotCall = @DoNotCall, DoNotText = @DoNotText WHERE PersonID = @PersonID AND PhoneID = @PhoneID";
             SqlConnection cn;
-            cn = new SqlConnection(_connectionString);
+            cn = new SqlConnection(Config.ConnectionString);
 
             cn.Open();
 
@@ -236,7 +232,7 @@ namespace DataPortal
                 DataSet ds = new DataSet();
                 String sqlStatementString = "UPDATE PersonPhones SET IsDeleted = 1 WHERE PhoneID = @PhoneID";
                 SqlConnection dbConnection;
-                dbConnection = new SqlConnection(_connectionString);
+                dbConnection = new SqlConnection(Config.ConnectionString);
                 dbConnection.Open();
 
                 SqlCommand dbCommand = dbConnection.CreateCommand();

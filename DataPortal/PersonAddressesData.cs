@@ -9,11 +9,6 @@ namespace DataPortal
 {
     public class PersonAddressesData
     {
-        //public PersonAddressesData();//
-        //C:\Users\Tom\Desktop\Person Manager\PersonManager\PersonManager_2013-03-12\PersonManager\DataManager\InventoryDatabase.mdf
-        //C:\\BegASPNET\\PersonManager\\PersonManager\\PersonManager\\DataManager\\App_Data\\InventoryDatabase.mdf
-        string _connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\Tom\\Desktop\\Person Manager\\PersonManager\\PersonManager_2013-03-12\\PersonManager\\DataManager\\InventoryDatabase.mdf;Integrated Security=True;User Instance=True";
-
         public DataSet Fetch(int PersonID)
         {
             DataSet ds = new DataSet();
@@ -21,7 +16,7 @@ namespace DataPortal
             String sql = "SELECT PersonID, Address.AddressID, AddressTypeID, PersonAddresses.Description, Notes, Street1, Street2, City, State, Zip FROM PersonAddresses JOIN Address ON Address.AddressID = PersonAddresses.AddressID WHERE PersonID = @PersonID";
             SqlConnection cn;
 
-            cn = new SqlConnection(_connectionString);
+            cn = new SqlConnection(Config.ConnectionString);
 
             cn.Open();
 

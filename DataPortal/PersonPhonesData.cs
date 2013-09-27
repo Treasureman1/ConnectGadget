@@ -8,18 +8,13 @@ namespace DataPortal
 {
    public class PersonPhonesData
     {
-        //public PersonPhonesData() { }
-        //C:\\Users\\Tom\\Desktop\\Person Manager\\PersonManager\\PersonManager_2013-03-12\\PersonManager\\DataManager\\InventoryDatabase.mdf
-       string _connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\Tom\\Desktop\\Person Manager\\PersonManager\\PersonManager_2013-03-12\\PersonManager\\DataManager\\InventoryDatabase.mdf;Integrated Security=True;User Instance=True";
-        //C:\\BegASPNET\\PersonManager\\PersonManager\\PersonManager\\DataManager\\App_Data\\InventoryDatabase.mdf
-
         public DataSet Fetch(int PersonID)
         {
             DataSet ds = new DataSet();        
             //phone.PhoneID   I changed this
             String sql = "SELECT PersonID, phone.PhoneID, PersonPhones.Description, PersonPhones.Notes, PersonPhones.DoNotCall, PersonPhones.DoNotText, Phone.AreaCode, Phone.PhoneNumber, Phone.Extension, Phone.PhoneTypeID FROM PersonPhones JOIN Phone ON Phone.PhoneID = PersonPhones.PhoneID WHERE PersonID = @PersonID AND (IsDeleted = 0 OR IsDeleted IS NULL)";
         SqlConnection cn;
-        cn = new SqlConnection(_connectionString);
+        cn = new SqlConnection(Config.ConnectionString);
 
         cn.Open();
 
@@ -48,7 +43,7 @@ namespace DataPortal
             String sqlStatementString = "UPDATE PersonPhones SET Description = @Description, Notes = @Notes, DoNotCall = @DoNotCall, DoNotText = @DoNotText WHERE PersonID = @PersonID AND PhoneID = @PhoneID";
             SqlConnection dbConnection;
 
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(Config.ConnectionString);
 
             dbConnection.Open();
 

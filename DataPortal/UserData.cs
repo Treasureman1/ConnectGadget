@@ -10,17 +10,6 @@ namespace DataPortal
     public class UserData
     {
         #region "Declarations"
-        //
-        //
-        //C:\Users\Tom\Desktop\Person Manager\PersonManager\PersonManager_2013-03-12\PersonManager\DataManager\InventoryDatabase.mdf
-        //C:\Users\Tom\Desktop\Person Manager\PersonManager\PersonManager_2013-03-12\PersonManager\DataManager\InventoryDatabase.mdf
-      //  string _connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\Tom\\Desktop\\Person Manager\\PersonManager\\PersonManager_2013-03-12\\PersonManager\\DataManager\\InventoryDatabase.mdf;Integrated Security=True;User Instance=True";
-      string _connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\Tom\\Desktop\\Person Manager\\PersonManager\\PersonManager_2013-03-12\\PersonManager\\DataManager\\InventoryDatabase.mdf;Integrated Security=True;User Instance=True";
-      //  String _connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\Tom\\Desktop\\Person Manager\\PersonManager\\PersonManager_2013-03-12\\PersonManager\\DataManager\\InventoryDatabase.mdf;Integrated Security=True;User Instance=True";
-    
-        // C:\\BegASPNET\\PersonManager\\PersonManager\\PersonManager\\DataManager\\App_Data\\InventoryDatabase.mdf
-      //   String _connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\BegASPNET\\PersonManager\\PersonManager\\PersonManager\\DataManager\\App_Data\\InventoryDatabase.mdf;Integrated Security=True;User Instance=True";
-
 
         #endregion
 
@@ -38,7 +27,7 @@ namespace DataPortal
             string sqlStatementString = "SELECT UserID, Username, Password FROM [User] WHERE UserID = @UserID";
             SqlConnection cn;
 
-            cn = new SqlConnection(_connectionString);
+            cn = new SqlConnection(Config.ConnectionString);
             cn.Open();
             SqlCommand cmd = cn.CreateCommand();
 
@@ -71,7 +60,7 @@ namespace DataPortal
             // We need a variable to hold the ID value of the record we are inserting
             //object userID;
 
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(Config.ConnectionString);
             dbConnection.Open();
 
             SqlCommand dbCommand = dbConnection.CreateCommand();
@@ -105,7 +94,7 @@ namespace DataPortal
             // We need a variable to hold the ID value of the record we are inserting
          //  object userID;
 
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(Config.ConnectionString);
             dbConnection.Open();
 
             SqlCommand dbCommand = dbConnection.CreateCommand();
@@ -135,7 +124,7 @@ namespace DataPortal
             String sql = "SELECT UserID, Username, Password FROM [User]";
             SqlConnection cn;
 
-            cn = new SqlConnection(_connectionString);
+            cn = new SqlConnection(Config.ConnectionString);
 
             cn.Open();
 
@@ -174,7 +163,7 @@ namespace DataPortal
             String sqlStatementString = "UPDATE [User] SET UserID = @UserID, Username = @Username, Password = @Password WHERE UserID = @UserID";
             SqlConnection dbConnection;
 
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(Config.ConnectionString);
 
             dbConnection.Open();
 

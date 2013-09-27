@@ -9,9 +9,6 @@ namespace DataPortal
 {
     public class EmailAddressData
     {
-        //String _connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\BegASPNET\\PersonManager\\PersonManager\\PersonManager\\DataManager\\App_Data\\InventoryDatabase.mdf;Integrated Security=True;User Instance=True";
-        string _connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\Tom\\Desktop\\Person Manager\\PersonManager\\PersonManager_2013-03-12\\PersonManager\\DataManager\\InventoryDatabase.mdf;Integrated Security=True;User Instance=True";
-
         public DataSet Fetch(int EmailAddressID) 
         {
             DataSet ds = new DataSet();
@@ -22,7 +19,7 @@ namespace DataPortal
             String sql = "SELECT EmailAddress.EmailAddressID, EmailAddress.Address, EmailAddress.PersonID FROM EmailAddress WHERE EmailAddressID = @EmailAddressID";
             SqlConnection cn;
 
-            cn = new SqlConnection(_connectionString);
+            cn = new SqlConnection( Config.ConnectionString );
 
             cn.Open();
 
@@ -52,7 +49,7 @@ namespace DataPortal
             SqlConnection dbConnection;
 
             object EmailAddressID;
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection( Config.ConnectionString );
 
             dbConnection.Open();
 
@@ -75,7 +72,7 @@ namespace DataPortal
             DataSet ds = new DataSet();
             String sql = "UPDATE EmailAddress SET Address = @Address, PersonID = @PersonID WHERE EmailAddressID = @EmailAddressID";
             SqlConnection cn;
-            cn = new SqlConnection(_connectionString);
+            cn = new SqlConnection( Config.ConnectionString );
             cn.Open();
 
             SqlCommand cmd = cn.CreateCommand();
@@ -105,7 +102,7 @@ namespace DataPortal
                 DataSet ds = new DataSet();
                 String sqlStatementString = "UPDATE EmailAddress SET IsDeleted = 1 WHERE EmailAddressID = @EmailAddressID";
                 SqlConnection dbConnection;
-                dbConnection = new SqlConnection(_connectionString);
+                dbConnection = new SqlConnection( Config.ConnectionString );
                 dbConnection.Open();
 
                 SqlCommand dbCommand = dbConnection.CreateCommand();

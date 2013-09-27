@@ -11,9 +11,6 @@ namespace DataPortal
     {
         #region "Declarations"
 
-        //string _connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\BegASPNET\\PersonManager\\PersonManager\\PersonManager\\DataManager\\App_Data\\InventoryDatabase.mdf;Integrated Security=True;User Instance=True";
-        string _connectionString = "Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\Tom\\Desktop\\Person Manager\\PersonManager\\PersonManager_2013-03-12\\PersonManager\\DataManager\\InventoryDatabase.mdf;Integrated Security=True;User Instance=True";
-      
         #endregion
 
         #region "Constructors"
@@ -31,7 +28,7 @@ namespace DataPortal
             String sql = "SELECT PersonID, Title, FirstName, LastName FROM Person WHERE PersonID = @PersonID";
             SqlConnection cn;
 
-            cn = new SqlConnection(_connectionString);
+            cn = new SqlConnection(Config.ConnectionString);
 
             cn.Open();
 
@@ -93,7 +90,7 @@ namespace DataPortal
             // We need a variable to hold the ID value of the record we are inserting
             object personID;
 
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(Config.ConnectionString);
             dbConnection.Open();
 
             SqlCommand dbCommand = dbConnection.CreateCommand();
@@ -123,7 +120,7 @@ namespace DataPortal
             String sql = "SELECT PersonID, Title, FirstName, LastName FROM Person";
             SqlConnection cn;
 
-            cn = new SqlConnection(_connectionString);
+            cn = new SqlConnection(Config.ConnectionString);
 
             cn.Open();
 
@@ -164,7 +161,7 @@ namespace DataPortal
             String sqlStatementString = "UPDATE Person SET Title = @Title, FirstName = @FirstName, LastName = @LastName WHERE PersonID = @PersonID";
             SqlConnection dbConnection;
 
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(Config.ConnectionString);
 
             dbConnection.Open();
 
@@ -199,7 +196,7 @@ namespace DataPortal
             String sqlStatementString = "UPDATE Person SET FirstName = @FirstName, LastName = @LastName WHERE PersonID = @PersonID";
             SqlConnection dbConnection;
 
-            dbConnection = new SqlConnection(_connectionString);
+            dbConnection = new SqlConnection(Config.ConnectionString);
 
             dbConnection.Open();
 

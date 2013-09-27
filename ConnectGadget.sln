@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Web Developer Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectGadget", "ConnectGadget\ConnectGadget.csproj", "{99BE3634-601B-4933-AB96-C59DB3CEB355}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectGadget.Web", "ConnectGadget\ConnectGadget.Web.csproj", "{99BE3634-601B-4933-AB96-C59DB3CEB355}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessObjects", "BusinessObjects\BusinessObjects.csproj", "{5372DADC-A586-4205-AC14-46378E7AC82E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataPortal", "DataPortal\DataPortal.csproj", "{7C51645B-084C-4FB6-9792-17EA07846118}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,14 @@ Global
 		{99BE3634-601B-4933-AB96-C59DB3CEB355}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99BE3634-601B-4933-AB96-C59DB3CEB355}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99BE3634-601B-4933-AB96-C59DB3CEB355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5372DADC-A586-4205-AC14-46378E7AC82E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5372DADC-A586-4205-AC14-46378E7AC82E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5372DADC-A586-4205-AC14-46378E7AC82E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5372DADC-A586-4205-AC14-46378E7AC82E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C51645B-084C-4FB6-9792-17EA07846118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C51645B-084C-4FB6-9792-17EA07846118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C51645B-084C-4FB6-9792-17EA07846118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C51645B-084C-4FB6-9792-17EA07846118}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

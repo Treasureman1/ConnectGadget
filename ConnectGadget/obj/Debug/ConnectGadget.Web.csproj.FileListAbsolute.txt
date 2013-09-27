@@ -1,0 +1,4 @@
+c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\ConnectGadget\bin\ConnectGadget.dll
+c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\ConnectGadget\bin\ConnectGadget.pdb
+c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\ConnectGadget\obj\Debug\ConnectGadget.dll
+c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\ConnectGadget\obj\Debug\ConnectGadget.pdb

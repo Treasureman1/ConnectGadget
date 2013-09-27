@@ -1,0 +1,7 @@
+c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\BusinessObjects\obj\Debug\BusinessObjects.csprojResolveAssemblyReference.cache
+c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\BusinessObjects\bin\Debug\BusinessObjects.dll
+c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\BusinessObjects\bin\Debug\BusinessObjects.pdb
+c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\BusinessObjects\bin\Debug\DataPortal.dll
+c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\BusinessObjects\bin\Debug\DataPortal.pdb
+c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\BusinessObjects\obj\Debug\BusinessObjects.dll
+c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\BusinessObjects\obj\Debug\BusinessObjects.pdb

@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>b278379c-7f7c-4df5-b2b6-b4f28bdfa53f</ProjectGuid>
+    <ProjectGuid>{7C51645B-084C-4FB6-9792-17EA07846118}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataPortal</RootNamespace>
@@ -40,8 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="EmailAddressData.cs" />
+    <Compile Include="EmailAddressesData.cs" />
+    <Compile Include="PersonAddressData.cs" />
+    <Compile Include="PersonAddressesData.cs" />
+    <Compile Include="PersonData.cs" />
+    <Compile Include="PersonPhoneData.cs" />
+    <Compile Include="PersonPhonesData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserData.cs" />
+    <Compile Include="UsersData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

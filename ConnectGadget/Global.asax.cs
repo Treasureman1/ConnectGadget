@@ -13,7 +13,7 @@ namespace ConnectGadget.Web
 {
     public class Global : System.Web.HttpApplication, IRequiresSessionState
     {
-        protected const string LOGIN_PAGE_URL = "~/Account/Login.aspx";
+        protected const string LOGIN_PAGE_URL = "~/Security/Login.aspx";
 
         void Application_Start(object sender, EventArgs e)
         {

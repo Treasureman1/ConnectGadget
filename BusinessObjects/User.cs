@@ -31,13 +31,15 @@ namespace ConnectGadget.BusinessObjects
         {
             LoadUser(ID);
         }
+
+        public User(string userName)
+        {
+            LoadUser(userName);
+        }
       
         public User(DataRow UserDataRow)
         {
-           
-            username = UserDataRow["Username"].ToString();
-            password = UserDataRow["Password"].ToString();
- 
+            DataRow2Entity(UserDataRow);
         }
 
         public User(IIdentity identity, IEnumerable<Role> roles)
@@ -142,16 +144,28 @@ namespace ConnectGadget.BusinessObjects
 
         #region "Private Methods"
 
+        private void DataRow2Entity(DataRow dr)
+        {
+            id = (int)dr["UserID"];
+            username = dr["Username"].ToString();
+            password = dr["Password"].ToString();
+        }
+
+        private void DataSet2Entity(DataSet ds)
+        {
+            DataRow2Entity(ds.Tables[0].Rows[0]);
+        }
+
+        private void LoadUser(string userName)
+        {
+            DataPortal.UserData ud = new DataPortal.UserData();
+            DataSet2Entity(ud.Fetch(userName));
+        }
+
         private void LoadUser(int id)
         {
-
             DataPortal.UserData ud = new DataPortal.UserData();            
-            DataSet ds = ud.Fetch(id);
-
-            id = (int)ds.Tables[0].Rows[0]["UserID"];
-            username = ds.Tables[0].Rows[0]["Username"].ToString();
-            password = ds.Tables[0].Rows[0]["Password"].ToString();                
-
+            DataSet2Entity( ud.Fetch(id) );
         }
 
         private int SaveUser2()

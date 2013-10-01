@@ -46,6 +46,31 @@ namespace DataPortal
             return ds;
         }
 
+        public DataSet Fetch( string userName )
+        {
+            DataSet ds = new DataSet();
+            string sqlStatementString = "SELECT UserID, Username, Password FROM [User] WHERE Username = @Username";
+            SqlConnection cn;
+
+            cn = new SqlConnection(Config.ConnectionString);
+            cn.Open();
+            SqlCommand cmd = cn.CreateCommand();
+
+            cmd.CommandText = sqlStatementString;
+            cmd.Parameters.AddWithValue("@Username", userName);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            da.Fill(ds);
+            cn.Close();
+
+            da = null;
+            cmd = null;
+            cn = null;
+
+            return ds;
+        }
+
         public void
           InsertUser2(int UserID, String Username, String Password) 
         {

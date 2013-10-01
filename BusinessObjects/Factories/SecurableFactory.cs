@@ -16,6 +16,11 @@ namespace ConnectGadget.BusinessObjects.Factories
 
             var fetched = sd.Fetch(securableName);
 
+            if (fetched.Tables[0].Rows.Count <= 0)
+            {
+                return (null);
+            }
+
             var firstRow = fetched.Tables[0].Rows[0];
 
             ISecurable toReturn = null;

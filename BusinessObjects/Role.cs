@@ -13,7 +13,7 @@ namespace ConnectGadget.BusinessObjects
 
         public Role(DataRow RoleDataRow)
         {
-            RoleName = RoleDataRow["RoleName"].ToString();
+            RoleName = RoleDataRow["Name"].ToString();
         }
 
         public string RoleName { get; set; }

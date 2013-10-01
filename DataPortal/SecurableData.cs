@@ -25,7 +25,7 @@ namespace DataPortal
         {
             DataSet ds = new DataSet();
 
-            String sql = "SELECT Name, AllowAnonymous, SecurableType FROM Securable WHERE SecurableName = @SecurableName";
+            String sql = "SELECT Name, AllowAnonymous, SecurableType FROM Securable WHERE Name = @SecurableName";
             SqlConnection cn;
 
             cn = new SqlConnection(Config.ConnectionString);
@@ -55,7 +55,7 @@ namespace DataPortal
         {
             DataSet ds = new DataSet();
 
-            String sql = "SELECT RoleName FROM Role where RoleName in ( select RoleName from SecurableRole WHERE SecurableName = @SecurableName )";
+            String sql = "SELECT Name FROM Role where Name in ( select RoleName from SecurableRole WHERE SecurableName = @SecurableName )";
             SqlConnection cn;
 
             cn = new SqlConnection(Config.ConnectionString);

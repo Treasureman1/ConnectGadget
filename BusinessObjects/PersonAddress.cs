@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 
-namespace BusinessObjects
+namespace ConnectGadget.BusinessObjects
 {
     public class PersonAddress : Address
     {

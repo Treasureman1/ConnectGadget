@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
+    <Compile Include="SecurableData.cs" />
+    <Compile Include="RoleData.cs" />
+    <Compile Include="UserRoleData.cs" />
     <Compile Include="EmailAddressData.cs" />
     <Compile Include="EmailAddressesData.cs" />
     <Compile Include="PersonAddressData.cs" />

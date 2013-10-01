@@ -5,7 +5,7 @@ using System.Text;
 using System.Data;
 using DataPortal;
 
-namespace BusinessObjects
+namespace ConnectGadget.BusinessObjects
 {
     public class PersonPhone : Phone
     {

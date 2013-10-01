@@ -44,7 +44,6 @@ namespace DataPortal
             cn = null;
 
             return ds;
-
         }
 
         public void

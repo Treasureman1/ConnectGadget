@@ -5,7 +5,7 @@ using System.Text;
 using System.Data;
 using System.Collections.ObjectModel;
 
-namespace BusinessObjects
+namespace ConnectGadget.BusinessObjects
 {
     public class Person
     {

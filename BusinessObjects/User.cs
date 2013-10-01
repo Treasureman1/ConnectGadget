@@ -4,16 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.Collections.ObjectModel;
+using System.Security.Principal;
 
-namespace BusinessObjects
+namespace ConnectGadget.BusinessObjects
 {
-    public class User : Person
+    public class User : Person, IPrincipal
     {
         #region "Declarations"
 
        private string username;
        private string password;
        private bool userExists = false;
+
+       private ISet<Role> _roles;
 
        DataPortal.PersonData pd = new DataPortal.PersonData();
        DataPortal.UserData ud = new DataPortal.UserData();
@@ -35,6 +38,19 @@ namespace BusinessObjects
             username = UserDataRow["Username"].ToString();
             password = UserDataRow["Password"].ToString();
  
+        }
+
+        public User(IIdentity identity, IEnumerable<Role> roles)
+        {
+            this.Identity = identity;
+
+            // Passing a custom comparer to force _roleNames to be case INsensitive
+            _roles = new HashSet<Role>();
+
+            foreach (var role in roles)
+            {
+                _roles.Add(role);
+            }
         }
 
         #endregion
@@ -77,6 +93,29 @@ namespace BusinessObjects
                 password= value;
             }
         }
+
+        public ISet<Role> Role
+        {
+            get
+            {
+                if (_roles == null)
+                {
+                    _roles = new HashSet<Role>();
+
+                    DataPortal.UserRoleData dp = new DataPortal.UserRoleData();
+
+                    DataSet ds = dp.Fetch(id);
+
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        UserRole ur = new UserRole(dr);
+                        _roles.Add(ur.Role);
+                    }
+                }
+                return _roles;
+            }
+        }
+
         #endregion
 
         #region "Public Methods"
@@ -174,5 +213,31 @@ namespace BusinessObjects
         
         #endregion
 
+        #region IPrincipal Members
+        public IIdentity Identity { get; set; }
+
+        public bool IsInRole(string roleName)
+        {
+            if (String.IsNullOrEmpty(roleName))
+            {
+                return (false);
+            }
+
+            foreach (var role in _roles)
+            {
+                if (String.IsNullOrEmpty(role.RoleName))
+                {
+                    continue;
+                }
+
+                if (role.RoleName.Equals(roleName))
+                {
+                    return (true);
+                }
+            }
+
+            return (false);
+        }
+        #endregion
     }
 }

@@ -2,3 +2,8 @@ c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\ConnectGadget\
 c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\ConnectGadget\bin\ConnectGadget.pdb
 c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\ConnectGadget\obj\Debug\ConnectGadget.dll
 c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\ConnectGadget\obj\Debug\ConnectGadget.pdb
+C:\Users\Andy\documents\visual studio 2010\Projects\ConnectGadget\ConnectGadget\obj\Debug\ConnectGadget.Web.csprojResolveAssemblyReference.cache
+C:\Users\Andy\documents\visual studio 2010\Projects\ConnectGadget\ConnectGadget\bin\BusinessObjects.dll
+C:\Users\Andy\documents\visual studio 2010\Projects\ConnectGadget\ConnectGadget\bin\DataPortal.dll
+C:\Users\Andy\documents\visual studio 2010\Projects\ConnectGadget\ConnectGadget\bin\BusinessObjects.pdb
+C:\Users\Andy\documents\visual studio 2010\Projects\ConnectGadget\ConnectGadget\bin\DataPortal.pdb

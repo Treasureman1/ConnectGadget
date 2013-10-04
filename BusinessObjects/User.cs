@@ -37,11 +37,11 @@ namespace ConnectGadget.BusinessObjects
             LoadUser(userName);
         }
       
-        public User(DataRow UserDataRow)
+/*        public User(DataRow UserDataRow)
         {
             DataRow2Entity(UserDataRow);
         }
-
+*/
         public User(IIdentity identity, IEnumerable<Role> roles)
         {
             this.Identity = identity;

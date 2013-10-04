@@ -42,7 +42,7 @@ namespace DataPortal
         {
             DataSet ds = new DataSet();
 
-            String sql = "SELECT u.UserID, r.RoleName FROM User u INNER JOIN UserRole ur ON ur.UserID = u.UserID WHERE ur.RoleName = @RoleName";
+            String sql = "SELECT u.UserName, ur.RoleName FROM [dbo].[User] u INNER JOIN UserRole ur ON ur.UserID = u.UserID WHERE ur.RoleName = @RoleName";
             SqlConnection cn;
 
             cn = new SqlConnection(Config.ConnectionString);

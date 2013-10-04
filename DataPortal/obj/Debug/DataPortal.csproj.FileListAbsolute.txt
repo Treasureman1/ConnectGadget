@@ -2,3 +2,4 @@ c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\DataPortal\bin
 c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\DataPortal\bin\Debug\DataPortal.pdb
 c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\DataPortal\obj\Debug\DataPortal.dll
 c:\users\andy\documents\visual studio 2010\Projects\ConnectGadget\DataPortal\obj\Debug\DataPortal.pdb
+C:\Users\Andy\documents\visual studio 2010\Projects\ConnectGadget\DataPortal\obj\Debug\DataPortal.csprojResolveAssemblyReference.cache

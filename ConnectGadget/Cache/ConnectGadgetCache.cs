@@ -37,7 +37,12 @@ namespace ConnectGadget.Cache
         {
             get
             {
-                return (HttpContext.Current.Session != null);
+                if (Session == null)
+                {
+                    return (false);
+                }
+
+                return (Session[SESSION_KEY_CACHE] != null);
             }
         }
 
@@ -120,6 +125,39 @@ namespace ConnectGadget.Cache
 
                 return (CurrentUser != null);
             }
+        }
+
+        /// <summary>
+        /// Determine whether or not the credentials passed in are valid
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public static bool Authenticate(string userName, string password)
+        {
+            if (String.IsNullOrEmpty(userName))
+            {
+                return (false);
+            }
+
+            if (String.IsNullOrEmpty(password))
+            {
+                return (false);
+            }
+
+            var user = new User(userName);
+
+            if (user == null)
+            {
+                return (false);
+            }
+
+            if (String.IsNullOrEmpty(user.Password))
+            {
+                return (false);
+            }
+
+            return (user.Password.Equals(password));
         }
 
         #endregion

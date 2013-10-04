@@ -31,7 +31,7 @@ namespace ConnectGadget.BusinessObjects
 
                     foreach (DataRow UserRoleDataRow in ds.Tables[0].Rows)
                     {
-                        _users.Add(new User(UserRoleDataRow));
+                        _users.Add(new User(UserRoleDataRow["Username"].ToString()));
                     }
                 }
 

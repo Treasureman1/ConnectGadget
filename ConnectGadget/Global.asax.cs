@@ -11,7 +11,7 @@ using ConnectGadget.BusinessObjects;
 
 namespace ConnectGadget.Web
 {
-    public class Global : System.Web.HttpApplication, IRequiresSessionState
+    public class Global : System.Web.HttpApplication
     {
         protected const string LOGIN_PAGE_URL = "~/Security/Login.aspx";
 
@@ -85,6 +85,9 @@ namespace ConnectGadget.Web
 
         void Application_BeginRequest(object sender, EventArgs e)
         {
+        }
+
+        void Application_AcquireRequestState(object sender, EventArgs e) {
             string securableName = GetSecurableNameForCurrentRequestPath();
 
             if (String.IsNullOrEmpty(securableName))
